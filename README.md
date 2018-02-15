@@ -1,27 +1,132 @@
-# React NPM library starter kit
+# React Chat-box
+Forked from https://github.com/kingofthestack/react-chat-window. Same API.
 
-[![Build Status](https://travis-ci.org/DimitriMikadze/create-react-library.svg?branch=master)](https://travis-ci.org/DimitriMikadze/create-react-library)
-[![Dependencies](https://img.shields.io/david/DimitriMikadze/create-react-library.svg)]()
-[![Dev Dependencies](https://img.shields.io/david/dev/DimitriMikadze/create-react-library.svg)]()
+`react-live-chat` provides an intercom-like chat window that can be included easily in any project for free. It provides no messaging facilities, only the view component.
 
-based on Facebook's <a href="https://github.com/facebookincubator/create-react-app" target="_blank">Create react app</a>.
-We are constantly updating repository with the updates of `create-react-app`, so we have all new features and bug fixes of it.
+<a href="https://www.npmjs.com/package/react-chat-window" target="\_parent">
+  <img alt="" src="https://img.shields.io/npm/dm/react-chat-window.svg" />
+</a>
+<a href="https://github.com/kingofthestack/react-chat-window" target="\_parent">
+  <img alt="" src="https://img.shields.io/github/stars/kingofthestack/react-chat-window.svg?style=social&label=Star" />
+</a>
 
-## Converted to custom setup
+![Alt Text](https://puu.sh/xei2F/fd4a121185.gif)
 
-Moved all dependencies to dev dependencies because we don't need extra dependencies for our library after build, but we want all this features while developing: 
+## Features
 
-* React, JSX, ES6, and Flow syntax support.
-* Language extras beyond ES6 like the object spread operator.
-* A dev server that lints for common errors.
-* Import CSS and image files directly from JavaScript.
-* Autoprefixed CSS, so you don’t need `-webkit` or other prefixes.
-* A `build` script to bundle JS, CSS, and images for production.
+- Customizeable
+- Backend agnostic
+- Free
 
-## Getting Started
+## [Demo](https://dharness.github.io/react-chat-window/)
 
-Clone repo
+## Table of Contents
+- [Installation](#installation)
+- [Example](#example)
+- [Components](#api)
 
+## Installation
+
+```
+$ npm install react-chat-window
+```
+
+## Example
+
+``` javascript
+import React, {Component} from 'react'
+import {render} from 'react-dom'
+import {Launcher} from '../../src'
+
+class Demo extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      messageList: messageHistory
+    };
+  }
+
+  _onMessageWasSent(message) {
+    this.setState({
+      messageList: [...this.state.messageList, message]
+    })
+  }
+
+  _sendMessage(text) {
+    if (text.length > 0) {
+      this.setState({
+        messageList: [...this.state.messageList, {
+          author: 'them',
+          type: 'text',
+          data: { text }
+        }]
+      })
+    }
+  }
+
+  render() {
+    return (<div>
+      <Launcher
+        agentProfile={{
+          teamName: 'react-live-chat',
+          imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
+        }}
+        onMessageWasSent={this._onMessageWasSent.bind(this)}
+        messageList={this.state.messageList}
+        showEmoji
+      />
+    </div>)
+  }
+}
+```
+
+For more detailed examples see the demo folder.
+
+## Components
+
+# Launcher
+
+`Launcher` is the only component needed to use react-live-chat. It will react dynamically to changes in messages. All new messages must be added via a change in props as shown in the example.
+
+Launcher props:
+
+|prop | type   | description |
+|-----|--------|---------------|
+| *agentProfile | object | Represents your product or service's customer service agent. Fields: teamName, imageUrl|
+| onMessageWasSent | function(message) | Called when a message a message is sent with a message object as an argument. |
+| messageList | [message] | An array of message objects to be rendered as a conversation. |
+| showEmoji | bool | A bool indicating whether or not to show the emoji button
+
+
+### Message Objects
+
+Message objects are rendered differently depending on their type. Currently, only text and emoji types are supported. Each message object has an `author` field which can have the value 'me' or 'them'.
+
+``` javascript
+{
+  author: 'them',
+  type: 'text',
+  data: {
+    text: 'some text'
+  }
+}
+
+{
+  author: 'me',
+  type: 'emoji',
+  data: {
+    code: 'someCode'
+  }
+}
+
+```
+
+## Issues
+[waffle.io](https://waffle.io/dharness/react-live-chat)
+
+
+# Development
 ````
 git clone https://github.com/DimitriMikadze/create-react-library.git
 ````

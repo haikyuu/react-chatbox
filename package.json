@@ -1,7 +1,7 @@
 {
-  "name": "create-react-library",
-  "version": "1.1.0",
-  "description": "React NPM library starter kit based on Facebook's create react app",
+  "name": "chat-box-widget",
+  "version": "1.0.0",
+  "description": "ChatBox react app",
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
@@ -11,15 +11,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DimitriMikadze/create-react-library.git"
+    "url": "git+https://github.com/haikyuu/react-chatbox.git"
   },
-  "author": "Dimitri Mikadze <dimitrimikadze@gmail.com>",
+  "author": "Abdellah Alaoui <als.abdellah@gmail.com>",
   "bugs": {
-    "url": "https://github.com/DimitriMikadze/create-react-library/issues"
+    "url": "https://github.com/haikyuu/react-chatbox/issues"
   },
-  "homepage": "https://github.com/DimitriMikadze/create-react-library#readme",
+  "homepage": "https://github.com/haikyuu/react-chatbox#readme",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "emoji-js": "^3.4.0"
+  },
   "devDependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",

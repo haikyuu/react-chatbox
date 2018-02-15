@@ -1,8 +1,4 @@
-import Example from './components/Example';
-import SecondExample from './components/SecondExample';
+import "./styles";
+import Launcher from "./components/Launcher";
 
-export default Example;
-
-export {
-  SecondExample,
-};
+export default Launcher;
