@@ -15,7 +15,7 @@ class EmojiPicker extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ hidden: false })
-    }, 100)
+    }, 1)
     this.domNode.focus() // works with onBlur to close the picker
   }
 

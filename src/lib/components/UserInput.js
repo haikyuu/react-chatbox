@@ -61,7 +61,6 @@ class UserInput extends Component {
           className="sc-user-input--text"
         />
         <div className="sc-user-input--buttons">
-          <div className="sc-user-input--button" />
           <div className="sc-user-input--button">
             {this.props.showEmoji && (
               <EmojiIcon onEmojiPicked={this._handleEmojiPicked.bind(this)} />

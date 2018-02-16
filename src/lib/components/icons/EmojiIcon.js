@@ -13,14 +13,23 @@ class EmojiIcon extends Component {
   _handlePickerBlur() {
     this.setState({
       isActive: false,
+      justBlurred: true,
     })
   }
 
   _openPicker(e) {
+    //onBlur always fires before onClick
     e.preventDefault()
-    this.setState({
-      isActive: !this.state.isActive,
-    })
+    const { justBlurred } = this.state
+    if (justBlurred) {
+      this.setState({
+        justBlurred: false,
+      })
+    } else {
+      this.setState({
+        isActive: true,
+      })
+    }
   }
 
   render() {
