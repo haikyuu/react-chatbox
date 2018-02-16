@@ -74,13 +74,17 @@
 .sc-user-input--send-icon path {
   fill: rgba(86, 88, 103, 0.3);
 }
-
-.sc-user-input--send-icon:hover path {
+.sc-user-input--send-icon-wrapper:hover #Layer_2 > path {
+  fill: rgba(86, 88, 103, 1);
+}
+.sc-user-input--emoji-icon-wrapper:hover #Layer_1 > g > path,
+.sc-user-input--emoji-icon-wrapper:hover #Layer_1 > g > circle {
   fill: rgba(86, 88, 103, 1);
 }
 
 .sc-user-input--emoji-icon-wrapper,
 .sc-user-input--send-icon-wrapper {
+  cursor: pointer;
   background: none;
   border: none;
   padding: 0px;
