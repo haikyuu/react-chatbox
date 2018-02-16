@@ -1,26 +1,26 @@
 // import PropTypes from "prop-types";
-import React, { Component } from "react";
-import EmojiPicker from "./../emoji-picker/EmojiPicker";
+import React, { Component } from 'react'
+import EmojiPicker from './../emoji-picker/EmojiPicker'
 
 class EmojiIcon extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
-      isActive: false
-    };
+      isActive: false,
+    }
   }
 
   _handlePickerBlur() {
     this.setState({
-      isActive: false
-    });
+      isActive: false,
+    })
   }
 
   _openPicker(e) {
-    e.preventDefault();
+    e.preventDefault()
     this.setState({
-      isActive: !this.state.isActive
-    });
+      isActive: !this.state.isActive,
+    })
   }
 
   render() {
@@ -38,7 +38,7 @@ class EmojiIcon extends Component {
         >
           <svg
             className={`sc-user-input--emoji-icon ${
-              this.props.isActive ? "active" : ""
+              this.props.isActive ? 'active' : ''
             }`}
             version="1.1"
             id="Layer_2"
@@ -69,8 +69,8 @@ class EmojiIcon extends Component {
           </svg>
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default EmojiIcon;
+export default EmojiIcon
