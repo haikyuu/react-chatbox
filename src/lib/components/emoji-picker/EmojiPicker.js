@@ -1,32 +1,33 @@
-import React, { Component } from "react";
-import EmojiConvertor from "emoji-js";
-import emojiData from "./emojiData";
+import React, { Component } from 'react'
+import EmojiConvertor from 'emoji-js'
+import emojiData from './emojiData'
 
 class EmojiPicker extends Component {
   constructor() {
-    super();
-    this.emojiConvertor = new EmojiConvertor();
-    this.emojiConvertor.init_env();
+    super()
+    this.emojiConvertor = new EmojiConvertor()
+    this.emojiConvertor.init_env()
+    this.state = {
+      hidden: true,
+    }
   }
 
   componentDidMount() {
-    const elem = this.domNode;
-    elem.style.opacity = 0;
-    window.requestAnimationFrame(() => {
-      elem.style.transition = "opacity 350ms";
-      elem.style.opacity = 1;
-    });
-    this.domNode.focus();
+    setTimeout(() => {
+      this.setState({ hidden: false })
+    }, 100)
   }
 
   render() {
+    const { hidden } = this.state
     return (
       <div
         tabIndex="0"
+        style={{ opacity: hidden ? 0 : 1, transition: 'opacity 350ms' }}
         onBlur={this.props.onBlur}
         className="sc-emoji-picker"
         ref={e => {
-          this.domNode = e;
+          this.domNode = e
         }}
       >
         <div className="sc-emoji-picker--content">
@@ -42,21 +43,21 @@ class EmojiPicker extends Component {
                       key={emoji}
                       className="sc-emoji-picker--emoji"
                       onClick={() => {
-                        this.props.onEmojiPicked(emoji);
-                        this.domNode.blur();
+                        this.props.onEmojiPicked(emoji)
+                        this.domNode.blur()
                       }}
                     >
                       {emoji}
                     </span>
-                  );
+                  )
                 })}
               </div>
-            );
+            )
           })}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default EmojiPicker;
+export default EmojiPicker
