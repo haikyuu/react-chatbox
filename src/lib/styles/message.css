@@ -1,8 +1,7 @@
 .sc-message {
-  width: 300px;
-  margin: auto;
-  padding-bottom: 10px;
   display: flex;
+  margin: 8px;
+  padding-bottom: 0;
 }
 
 .sc-message--content {
@@ -37,7 +36,7 @@
   font-size: 14px;
   line-height: 1.4;
   white-space: pre-wrap;
-  -webkit-font-smoothing: subpixel-antialiased
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .sc-message--content.sent .sc-message--text {
